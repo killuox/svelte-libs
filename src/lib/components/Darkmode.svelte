@@ -1,34 +1,31 @@
-<script>
-    let isDarkMode = false;
-  
-    function toggleDarkMode() {
-      isDarkMode = !isDarkMode;
-      // add dark mode class to the body
-        document.body.classList.toggle('dark');
-    }
-  </script>
-  
-  <div class="dark-mode-switcher">
-    <input
-      type="checkbox"
-      id="darkModeToggle"
-      bind:checked={isDarkMode}
-      on:change={toggleDarkMode}
-    />
-    <label for="darkModeToggle">Dark Mode</label>
-  </div>
-  
-  <style>
-    /* Add your CSS styles for the dark mode switcher here */
-    .dark-mode-switcher {
-      display: flex;
-      align-items: center;
-      margin: 1rem;
-    }
-  
-    /* You can style the label and input to create a visually appealing switcher */
-    label {
-      margin-left: 0.5rem;
-    }
-  </style>
-  
+<script lang="ts">
+	import { Moon, Sun } from 'phosphor-svelte';
+	import { onMount } from 'svelte';
+	import Icon from './Icon.svelte';
+
+	let isDarkMode = false;
+
+	function handleClick() {
+		isDarkMode = !isDarkMode;
+		if (isDarkMode) {
+			document.body.classList.add('dark');
+		} else {
+			document.body.classList.remove('dark');
+		}
+	}
+
+	onMount(() => {
+		if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+			isDarkMode = true;
+			document.body.classList.add('dark');
+		}
+	});
+</script>
+
+<button on:click={handleClick} class="hover:text-svelte-500">
+	{#if isDarkMode}
+		<Icon icon={Sun} size={20} />
+	{:else}
+		<Icon icon={Moon} size={20} />
+	{/if}
+</button>

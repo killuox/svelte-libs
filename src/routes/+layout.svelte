@@ -3,7 +3,7 @@
 	import '../app.css';
 </script>
 
-<div class="bg-slate-100 dark:bg-stone-900">
+<main class="bg-slate-100 dark:bg-stone-900 h-full">
 	<Header />
 	<slot />
-</div>
+</main>
