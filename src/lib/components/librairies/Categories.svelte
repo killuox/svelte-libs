@@ -80,11 +80,16 @@
 </script>
 
 <div class="flex flex-col">
-    <h2 class="text-2xl font-bold mb-4">Categories</h2>
+	<h2 class="text-2xl font-bold mb-4">Categories</h2>
 	{#each data as item}
-		<div class="flex items-center justify-between space-y-2 space-x-2">
-			<span class="text-lg text-stone-700 dark:text-stone-300">{item.label}</span>
-			<span class="text-sm text-slate-500 dark:text-stone-500 border py-1 w-8 text-center rounded-md">{item.count}</span>
-		</div>
+		<button
+			class="flex items-center justify-between space-y-2 space-x-2 text-stone-700 dark:text-stone-300 hover:text-svelte-500 dark:hover:text-svelte-500 w-full"
+		>
+			<span class="text-lg">{item.label}</span>
+			<span
+				class="text-sm text-slate-500 dark:text-stone-500 border py-1 w-8 text-center rounded-md"
+				>{item.count}</span
+			>
+		</button>
 	{/each}
 </div>

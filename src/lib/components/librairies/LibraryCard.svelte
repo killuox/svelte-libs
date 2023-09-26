@@ -4,6 +4,7 @@
 	import tempLogo from '$lib/assets/berrybase.png';
 
 	export let item: {
+		id: number;
 		name: string;
 		description: string;
 		stars: number;
@@ -21,8 +22,10 @@
 	}
 </script>
 
-<div
-	class="bg-slate-200 dark:bg-stone-800 rounded-md border dark:border-stone-700 overflow-hidden relative h-fit"
+<a
+	href={`/${item.id}`}
+	class="bg-slate-200 dark:bg-stone-800 rounded-md overflow-hidden relative h-fit hover:border-svelte-500 dark:hover:border-svelte-500 border dark:border-stone-700
+    "
 >
 	<div
 		class="flex justify-end items-center space-x-2 bg-slate-100 dark:bg-stone-900 p-3 border-b border-slate-200 dark:border-stone-700"
@@ -51,4 +54,4 @@
 		<p class="text-sm">{item.description}</p>
 	</div>
 	<img src={tempLogo} alt="" class="absolute w-24 h-24 object-cover top-4 left-4 rounded-md" />
-</div>
+</a>
