@@ -35,7 +35,7 @@
 				{link.name}
 			</a>
 		{/each}
-		<div class="flex ml-2 space-x-2">
+		<div class="flex ml-4 space-x-2">
 			<Darkmode />
 			<a href="/" class="hover:text-svelte-500 flex items-center">
 				<Icon icon={GithubLogo} size={20} />
